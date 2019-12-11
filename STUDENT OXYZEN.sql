@@ -18,7 +18,7 @@ CREATE TABLE Student(
 StudentId INT PRIMARY KEY,
 FirstName varchar (50) NOT NULL,
 LastName varchar (50) NOT NULL,
-DateOfBirth date NOT NULL,
+DateOfBirth int NOT NULL,
 PhoneNumber bigint,
 AddressLine1 varchar (250) NOT NULL,
 AddressLine2 varchar (250) NOT NULL,
@@ -105,10 +105,6 @@ GO
 ALTER TABLE Student_Course
 ADD CONSTRAINT FKCourseId
 FOREIGN KEY (CourseId) REFERENCES Course (CourseId);
-GO 
-
-SELECT * FROM [Student]
+GO
 
 
-insert into STUDENT OXYZEN (StudentId, FirstName, LastName, DateOfBirth, PhoneNumber, Address1, Address2, PostCode, City, Country) values (1, 'Jarrod', 'Jaquin', '2019-01-29', '658-491-0730', '39873 Knutson Park', 'Independence', null, 'Ridder', 'Kazakhstan');
-insert into STUDENT OXYZEN (StudentId, FirstName, LastName, DateOfBirth, PhoneNumber, Address1, Address2, PostCode, City, Country) values (2, 'Jarrod', 'Iacovozzo', '2019-08-28', '161-234-6610', '84 Mcguire Point', 'Dakota', '74-210', 'Przelewice', 'Poland');
