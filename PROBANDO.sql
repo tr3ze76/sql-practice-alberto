@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS StudentsRecord
 CREATE DATABASE StudentsRecord
 GO
 
@@ -7,21 +8,17 @@ GO
 
 CREATE SCHEMA StudentsRecord
 GO
-
-
+DROP TABLE StudentsRecord.Student
 CREATE TABLE StudentsRecord.Student(
 StudentId INT PRIMARY KEY,
-CONSTRAINT TheStudentId CHECK (LEN (StudentId) > 0),
 FirstName varchar (50) NOT NULL,
 LastName varchar (50) NOT NULL,
 DateOfBirth date NOT NULL,
-CONSTRAINT DayOfBirth CHECK (DateOfBirth > 1900/01/01),
 PhoneNumber bigint,
 AddressLine1 varchar (250) NOT NULL,
 AddressLine2 varchar (250) NOT NULL,
 PostCode varchar (10) NOT NULL,
 City varchar (50) NOT NULL,
-CONSTRAINT ValidCityName CHECK (LEN(City) > 2),
 Country varchar (15) NOT NULL
 );
 GO
@@ -105,6 +102,50 @@ ALTER TABLE StudentsRecord.Student_Course
 ADD CONSTRAINT FKCourseId
 FOREIGN KEY (CourseId) REFERENCES StudentsRecord.Course (CourseId);
 GO
+
+ALTER TABLE StudentsRecord.Student
+ADD CONSTRAINT Student_Id CHECK (LEN (StudentId) > 0);
+GO
+
+ALTER TABLE StudentsRecord.Student
+ADD CONSTRAINT Phone_Number_Student CHECK (LEN (PhoneNumber) >10000000);
+GO
+ALTER TABLE StudentsRecord.Student
+ADD CONSTRAINT City_Name CHECK (LEN (City) > 2);
+GO
+
+ALTER TABLE StudentsRecord.ParentsInformation
+ADD CONSTRAINT Phone_Number_parents CHECK (LEN (PhoneNumber) >10000000);
+GO
+
+ALTER TABLE StudentsRecord.Institution
+ADD CONSTRAINT Institution_DLI_Number CHECK (LEN (DLINumber) > 0);
+GO
+
+ALTER TABLE StudentsRecord.Institution
+ADD CONSTRAINT Institution_Postcode CHECK (LEN (Postcode) > 4);
+GO
+
+ALTER TABLE StudentsRecord.Institution
+ADD CONSTRAINT City_Name_Institution CHECK (LEN (City) > 2);
+GO
+
+ALTER TABLE StudentsRecord.Institution
+ADD CONSTRAINT PhoneNumber_Institution CHECK (LEN (PhoneNumber) >10000000);
+GO
+
+ALTER TABLE StudentsRecord.Program
+ADD CONSTRAINT Program_Id CHECK (LEN (ProgramId) > 0);
+GO
+
+ALTER TABLE StudentsRecord.Program
+ADD CONSTRAINT Program_Name1 CHECK (LEN (ProgramName) > 5);
+GO
+
+
+
+
+
 
 
 insert into StudentsRecord.Student (StudentId, FirstName, LastName, DateOfBirth, PhoneNumber, AddressLine1, AddressLine2, PostCode, City, Country) values (3, 'Davine', 'Corsan', '2018-12-12', '3685464859', '6270 Onsgard Hill', 'Eliot', 'Y4E-4F8', 'Donostia-San Sebastian', 'Spain');
