@@ -1,3 +1,4 @@
+DROP DATABASE StudentsRecord
 CREATE DATABASE StudentsRecord
 GO
 
@@ -83,25 +84,6 @@ CourseId INT
 GO
 
 
-ALTER TABLE StudentsRecord.Student_Parents
-ADD CONSTRAINT FKStudentId 
-FOREIGN KEY (StudentId) REFERENCES StudentsRecord.Student(StudentId);
-GO
-
-ALTER TABLE StudentsRecord.Student_Parents
-ADD CONSTRAINT FKParentsId
-FOREIGN KEY (ParentsId) REFERENCES StudentsRecord.ParentsInformation(ParentsId);
-GO
-
-ALTER TABLE StudentsRecord.Student_Course
-ADD CONSTRAINT FKStudentId_C
-FOREIGN KEY (StudentId) REFERENCES StudentsRecord.Student (StudentId);
-GO
-
-ALTER TABLE StudentsRecord.Student_Course
-ADD CONSTRAINT FKCourseId
-FOREIGN KEY (CourseId) REFERENCES StudentsRecord.Course (CourseId);
-GO
 
 ALTER TABLE StudentsRecord.Student
 ADD CONSTRAINT TheStudentId CHECK (LEN (StudentId) > 0);
@@ -136,6 +118,7 @@ ALTER TABLE StudentsRecord.Institution
 ADD CONSTRAINT Phone_Number_Institution CHECK (LEN (PhoneNumber) > 10000000);
 GO
 
+
 ALTER TABLE StudentsRecord.Program
 ADD CONSTRAINT Program_Id CHECK (LEN (ProgramId) > 0);
 GO
@@ -143,5 +126,65 @@ ALTER TABLE StudentsRecord.Program
 ADD CONSTRAINT Name_Program CHECK (LEN (ProgramName) > 1);
 GO
 ALTER TABLE StudentsRecord.Program
-ADD CONSTRAINT Starting_Date CHECK (DATEFROMPARTS) (YEAR GETDATE) (StartingDate),2019,11,25); 
+ADD CONSTRAINT Starting_Date CHECK (StartingDate >= '2019/11/25'); 
+GO
+ALTER TABLE StudentsRecord.Program
+ADD CONSTRAINT Ending_Date CHECK (EndingDate <= '2020/04/01');
+GO
+
+ALTER TABLE StudentsRecord.Course
+ADD CONSTRAINT Course_ID CHECK ( LEN (CourseId) > 0);
+GO
+ALTER TABLE StudentsRecord.Course
+ADD CONSTRAINT Course_Name CHECK (LEN (CourseName) > 1);
+GO
+ALTER TABLE StudentsRecord.Course
+ADD CONSTRAINT Course_Module CHECK (LEN (CourseModule) > 0);
+GO
+ALTER TABLE StudentsRecord.Course
+ADD CONSTRAINT Course_Timetable CHECK (TimeTable >='17:00' AND  TimeTable <='21:00');
+GO
+
+ALTER TABLE StudentsRecord.Scholarship
+ADD CONSTRAINT Scholarship_Id CHECK (LEN (ScholarshipId) > 0);
+GO
+ALTER TABLE StudentsRecord.Scholarship
+ADD CONSTRAINT Scholarship_name CHECK (LEN (ScholarshipName) > 4);
+GO
+ALTER TABLE StudentsRecord.Scholarship
+ADD CONSTRAINT Scholarship_Amount CHECK (Amount >= 500);
+GO
+ALTER TABLE StudentsRecord.Scholarship
+ADD CONSTRAINT Descr CHECK (LEN (ScholarshipDescr) >10);
+GO
+ALTER TABLE StudentsRecord.Scholarship
+ADD CONSTRAINT DFLTScholarship
+DEFAULT ('Not Applicable') FOR ScholarshipDescr;
+GO
+
+INSERT INTO StudentsRecord.Scholarship (ScholarshipId, ScholarshipName, Amount, ScholarshipDescr)
+VALUES (1, 'QueenMary', $500, DEFAULT);
+GO
+
+ALTER TABLE StudentsRecord.Student
+ADD CONSTRAINT Country
+DEFAULT 'Canada' FOR Country;
+GO
+INSERT INTO StudentsRecord.Student (StudentId, FirstName, LastName, DateOfBirth, PhoneNumber, AddressLine1, AddressLine2,
+PostCode, City, Country)
+VALUES (555, 'John', 'Martin', '2000/01/01', '0141710717', 'BloorWest', 'Unit2', 'J4J3I9', 'TORONTO', DEFAULT);
+GO
+
+INSERT INTO StudentsRecord.ParentsInformation (ParentsId, FatherName, MotherName, PhoneNumber)
+VALUES (33, 'Mike', 'Amanda', '6477778887');
+GO
+
+ALTER TABLE StudentsRecord.Institution
+ADD CONSTRAINT Country
+DEFAULT 'mexico' FOR Country;
+GO
+
+INSERT INTO StudentsRecord.Institution (DLINumber, InstitutionName, Addressline1, AddressLine2,
+Postcode, City, Country, PhoneNumber)
+VALUES (13, 'IBT_COLLEGE', 'Shepar', 'Unit_47', 'U8U7E7', 'TORONTO', 'HOLLAND', '00000001')
 GO
