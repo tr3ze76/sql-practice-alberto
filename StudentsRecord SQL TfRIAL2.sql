@@ -1,4 +1,4 @@
-CREATE DATABASE StudentsRecord
+﻿CREATE DATABASE StudentsRecord
 GO
 
 USE StudentsRecord;
@@ -186,11 +186,11 @@ ON StudentsRecord.Student (FirstName, LastName);
 
 insert into StudentsRecord.Student (StudentId, FirstName, LastName, DateOfBirth, PhoneNumber, AddressLine1, AddressLine2, PostCode, City, Country) values (11, 'Sophi', 'Oak', '2019-04-28', '1294310290', '796 Bonner Alley', 'Talisman', '656565', 'Karlivka', 'Ukraine');
 insert into StudentsRecord.Student (StudentId, FirstName, LastName, DateOfBirth, PhoneNumber, AddressLine1, AddressLine2, PostCode, City, Country) values (21, 'Rutledge', 'Wainscoat', '2019-12-16', '5935904155', '230 Packers Parkway', 'Loeprich', '333344', 'Krajan Pundungsari', 'Indonesia');
-insert into StudentsRecord.Student (StudentId, FirstName, LastName, DateOfBirth, PhoneNumber, AddressLine1, AddressLine2, PostCode, City, Country) values (31, 'Laurence', 'Ronaghan', '2019-10-26', '3402532373', '11629 Hazelcrest Crossing', 'Ilene', '45o678', 'Al Ma?l?b', 'Yemen');
+insert into StudentsRecord.Student (StudentId, FirstName, LastName, DateOfBirth, PhoneNumber, AddressLine1, AddressLine2, PostCode, City, Country) values (31, 'Laurence', 'Ronaghan', '2019-10-26', '3402532373', '11629 Hazelcrest Crossing', 'Ilene', '45o678', 'Al Maşlūb', 'Yemen');
 insert into StudentsRecord.Student (StudentId, FirstName, LastName, DateOfBirth, PhoneNumber, AddressLine1, AddressLine2, PostCode, City, Country) values (41, 'Alva', 'Loveguard', '2019-10-29', '9832181668', '40 3rd Lane', 'Helena', '654677', 'Chapimarca', 'Peru');
 insert into StudentsRecord.Student (StudentId, FirstName, LastName, DateOfBirth, PhoneNumber, AddressLine1, AddressLine2, PostCode, City, Country) values (51, 'Augustina', 'Dance', '2019-01-21', '4283858927', '8364 Derek Court', 'Pond', '006960', 'Sahline', 'Tunisia');
 insert into StudentsRecord.Student (StudentId, FirstName, LastName, DateOfBirth, PhoneNumber, AddressLine1, AddressLine2, PostCode, City, Country) values (61, 'Drucy', 'Albery', '2019-10-04', '3863664136', '9 Golf View Circle', 'Mifflin', '39-323', 'Mielec', 'Poland');
-insert into StudentsRecord.Student (StudentId, FirstName, LastName, DateOfBirth, PhoneNumber, AddressLine1, AddressLine2, PostCode, City, Country) values (71, 'Devy', 'Canet', '2019-11-05', '9807308896', '67492 Porter Junction', 'Fairview', '660066', 'Santa Elena de Uair�n', 'Venezuela');
+insert into StudentsRecord.Student (StudentId, FirstName, LastName, DateOfBirth, PhoneNumber, AddressLine1, AddressLine2, PostCode, City, Country) values (71, 'Devy', 'Canet', '2019-11-05', '9807308896', '67492 Porter Junction', 'Fairview', '660066', 'Santa Elena de Uairén', 'Venezuela');
 insert into StudentsRecord.Student (StudentId, FirstName, LastName, DateOfBirth, PhoneNumber, AddressLine1, AddressLine2, PostCode, City, Country) values (81, 'Phillie', 'Asipenko', '2018-12-22', '7917802655', '739 Corry Junction', 'High Crossing', '65y566', 'Beruniy', 'Uzbekistan');
 insert into StudentsRecord.Student (StudentId, FirstName, LastName, DateOfBirth, PhoneNumber, AddressLine1, AddressLine2, PostCode, City, Country) values (91, 'Bobby', 'Santostefano.', '2019-03-15', '7365607378', '779 Homewood Plaza', 'Hanover', '668899', 'Niandui', 'China');
 insert into StudentsRecord.Student (StudentId, FirstName, LastName, DateOfBirth, PhoneNumber, AddressLine1, AddressLine2, PostCode, City, Country) values (101, 'Jourdan', 'Blasius', '2019-12-02', '8115455599', '3 Stang Road', 'Orin', '456510', 'Dolgoderevenskoye', 'Russia');
